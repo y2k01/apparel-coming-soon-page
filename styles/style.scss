@@ -24,27 +24,32 @@
             font-size: 2.5rem;
           }
         }
+        p {
+          margin-bottom: 30px;
+        }
         .email-validation {
           justify-content: center;
           input {
-            width: 200px;
-            height: 30px;
+            width: 270px;
+            height: 44px;
             font-size: 1rem;
           }
           button {
             width: 70px;
             height: 50px;
-            transform: translateX(-25px);
+            position: absolute;
+            transform: translateX(105px);
           }
         }
         #error-icon {
           position: absolute;
           transform:
-                  translateX(10px)
+                  translateX(35px)
                   translateY(-37px);
         }
         #validation-status {
-
+          margin-top: 10px;
+          transform: translateX(20px);
         }
       }
     }
@@ -52,6 +57,8 @@
       header {
         width: 400px;
         height: 100px;
+        background-color: #FFF;
+        display: flex;
         img {
           margin: 25px;
         }
@@ -81,6 +88,9 @@
           h1 {
             font-size: 4rem;
           }
+        }
+        p {
+          margin-bottom: 50px;
         }
         .email-validation {
           input {
@@ -143,7 +153,6 @@ body {
         }
         p {
           line-height: 1.5;
-          margin-bottom: 50px;
           color: hsl(0, 36%, 70%)
         }
         .email-validation {
