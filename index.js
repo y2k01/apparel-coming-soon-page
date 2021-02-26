@@ -15,24 +15,31 @@ let errorIcon = `
 `
 
 button.onclick = function validateEmail() {
-
-    if(document.getElementById('validation-status')) {
-        document.getElementById('validation-status').remove()
-    }
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(String(input.value).toLowerCase())) {
-        console.log('email validated')
-        emailValidation.insertAdjacentHTML("afterend", emailIsValid)
+        if(document.getElementById('validation-status')) {
+            document.getElementById('validation-status').remove()
+            emailValidation.insertAdjacentHTML("afterend", emailIsValid)
+        }
         if (document.getElementById('error-icon')) {
             document.getElementById('error-icon').remove()
         }
     } else if (input.value === '') {
-        console.log('email empty')
-        emailValidation.insertAdjacentHTML("afterend", errorIcon)
+        if (!document.getElementById('error-icon')) {
+            emailValidation.insertAdjacentHTML("afterend", errorIcon)
+        }
+        if (document.getElementById('validation-status')) {
+            document.getElementById('validation-status').remove()
+        }
         emailValidation.insertAdjacentHTML("afterend", inputEmpty)
     } else if (!re.test(String(input.value).toLowerCase())) {
-        console.log('email not validated')
-        emailValidation.insertAdjacentHTML("afterend", errorIcon)
+        if (!document.getElementById('error-icon')) {
+            emailValidation.insertAdjacentHTML("afterend", errorIcon)
+        }
+        if(document.getElementById('validation-status')) {
+            document.getElementById('validation-status').remove()
+        }
         emailValidation.insertAdjacentHTML("afterend", emailIsNotValid)
     }
+
 }
